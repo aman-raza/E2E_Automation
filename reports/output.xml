@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.3 on linux)" generated="20251113 19:04:32.668" rpa="false" schemaversion="4">
+<suite id="s1" name="Suites" source="/home/aman/Desktop/ecom-api-robot/tests/suites">
+<suite id="s1-s1" name="00 Setup" source="/home/aman/Desktop/ecom-api-robot/tests/suites/00_setup.robot">
+<test id="s1-s1-t1" name="Ensure API Up" line="7">
+<status status="FAIL" starttime="20251113 19:04:32.697" endtime="20251113 19:04:32.697">Test cannot be empty.</status>
+</test>
+<test id="s1-s1-t2" name="Create Session To API" line="8">
+<status status="FAIL" starttime="20251113 19:04:32.697" endtime="20251113 19:04:32.698">Test cannot be empty.</status>
+</test>
+<test id="s1-s1-t3" name="${resp}= Get Request api /health" line="9">
+<status status="FAIL" starttime="20251113 19:04:32.698" endtime="20251113 19:04:32.699">Test cannot be empty.</status>
+</test>
+<test id="s1-s1-t4" name="Status Should Be ${resp} 200" line="10">
+<status status="FAIL" starttime="20251113 19:04:32.699" endtime="20251113 19:04:32.700">Test cannot be empty.</status>
+</test>
+<status status="FAIL" starttime="20251113 19:04:32.696" endtime="20251113 19:04:32.700"/>
+</suite>
+<suite id="s1-s2" name="01 Auth" source="/home/aman/Desktop/ecom-api-robot/tests/suites/01_auth.robot">
+<test id="s1-s2-t1" name="Login with valid credentials" line="7">
+<status status="FAIL" starttime="20251113 19:04:32.703" endtime="20251113 19:04:32.703">Test cannot be empty.</status>
+</test>
+<test id="s1-s2-t2" name="Create Session To API" line="8">
+<status status="FAIL" starttime="20251113 19:04:32.704" endtime="20251113 19:04:32.704">Test cannot be empty.</status>
+</test>
+<test id="s1-s2-t3" name="${payload}= Create Dictionary email=${ADMIN_USER} password=${ADMIN_PASS}" line="9">
+<status status="FAIL" starttime="20251113 19:04:32.707" endtime="20251113 19:04:32.707">Test cannot be empty.</status>
+</test>
+<test id="s1-s2-t4" name="${resp}= POST Should Return Status api /auth/login ${payload} 200" line="10">
+<status status="FAIL" starttime="20251113 19:04:32.709" endtime="20251113 19:04:32.709">Test cannot be empty.</status>
+</test>
+<test id="s1-s2-t5" name="${token}= Get Json Field ${resp} token" line="11">
+<status status="FAIL" starttime="20251113 19:04:32.710" endtime="20251113 19:04:32.711">Test cannot be empty.</status>
+</test>
+<test id="s1-s2-t6" name="Should Not Be Empty ${token}" line="12">
+<status status="FAIL" starttime="20251113 19:04:32.711" endtime="20251113 19:04:32.712">Test cannot be empty.</status>
+</test>
+<test id="s1-s2-t7" name="Set Suite Variable ${AUTH_TOKEN} ${token}" line="14">
+<status status="FAIL" starttime="20251113 19:04:32.713" endtime="20251113 19:04:32.713">Test cannot be empty.</status>
+</test>
+<status status="FAIL" starttime="20251113 19:04:32.701" endtime="20251113 19:04:32.713"/>
+</suite>
+<suite id="s1-s3" name="02 Products" source="/home/aman/Desktop/ecom-api-robot/tests/suites/02_products.robot">
+<test id="s1-s3-t1" name="Get product list" line="7">
+<status status="FAIL" starttime="20251113 19:04:32.715" endtime="20251113 19:04:32.716">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t2" name="Create Session To API" line="8">
+<status status="FAIL" starttime="20251113 19:04:32.716" endtime="20251113 19:04:32.716">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t3" name="${resp}= Get Request api /products" line="9">
+<status status="FAIL" starttime="20251113 19:04:32.717" endtime="20251113 19:04:32.717">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t4" name="Status Should Be ${resp} 200" line="10">
+<status status="FAIL" starttime="20251113 19:04:32.718" endtime="20251113 19:04:32.718">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t5" name="${body}= To Json ${resp.content}" line="11">
+<status status="FAIL" starttime="20251113 19:04:32.720" endtime="20251113 19:04:32.721">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t6" name="Length Should Be ${body} &gt;=1" line="12">
+<status status="FAIL" starttime="20251113 19:04:32.722" endtime="20251113 19:04:32.722">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t7" name="Create new product (admin)" line="15">
+<status status="FAIL" starttime="20251113 19:04:32.722" endtime="20251113 19:04:32.723">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t8" name="[Tags] smoke" line="16">
+<status status="FAIL" starttime="20251113 19:04:32.723" endtime="20251113 19:04:32.723">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t9" name="Create Session To API" line="17">
+<status status="FAIL" starttime="20251113 19:04:32.724" endtime="20251113 19:04:32.724">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t10" name="${payload}= Create Dictionary name=Test Product price=49.99 sku=TP-100" line="18">
+<status status="FAIL" starttime="20251113 19:04:32.725" endtime="20251113 19:04:32.725">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t11" name="${headers}= Create Dictionary Authorization=Bearer ${AUTH_TOKEN}" line="19">
+<status status="FAIL" starttime="20251113 19:04:32.727" endtime="20251113 19:04:32.728">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t12" name="${resp}= Post Request api /products json=${payload} headers=${headers}" line="20">
+<status status="FAIL" starttime="20251113 19:04:32.731" endtime="20251113 19:04:32.731">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t13" name="Status Should Be ${resp} 201" line="21">
+<status status="FAIL" starttime="20251113 19:04:32.732" endtime="20251113 19:04:32.733">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t14" name="${id}= Get Json Field ${resp} id" line="22">
+<status status="FAIL" starttime="20251113 19:04:32.734" endtime="20251113 19:04:32.735">Test cannot be empty.</status>
+</test>
+<test id="s1-s3-t15" name="Should Not Be Empty ${id}" line="23">
+<status status="FAIL" starttime="20251113 19:04:32.735" endtime="20251113 19:04:32.736">Test cannot be empty.</status>
+</test>
+<status status="FAIL" starttime="20251113 19:04:32.714" endtime="20251113 19:04:32.736"/>
+</suite>
+<suite id="s1-s4" name="03 Cart" source="/home/aman/Desktop/ecom-api-robot/tests/suites/03_cart.robot">
+<test id="s1-s4-t1" name="Add product to cart" line="7">
+<status status="FAIL" starttime="20251113 19:04:32.738" endtime="20251113 19:04:32.738">Test cannot be empty.</status>
+</test>
+<test id="s1-s4-t2" name="Create Session To API" line="8">
+<status status="FAIL" starttime="20251113 19:04:32.739" endtime="20251113 19:04:32.739">Test cannot be empty.</status>
+</test>
+<test id="s1-s4-t3" name="${headers}= Create Dictionary Authorization=Bearer ${AUTH_TOKEN}" line="9">
+<status status="FAIL" starttime="20251113 19:04:32.741" endtime="20251113 19:04:32.741">Test cannot be empty.</status>
+</test>
+<test id="s1-s4-t4" name="${payload}= Create Dictionary product_id=1 quantity=2" line="10">
+<status status="FAIL" starttime="20251113 19:04:32.742" endtime="20251113 19:04:32.743">Test cannot be empty.</status>
+</test>
+<test id="s1-s4-t5" name="${resp}= Post Request api /cart json=${payload} headers=${headers}" line="11">
+<status status="FAIL" starttime="20251113 19:04:32.746" endtime="20251113 19:04:32.746">Test cannot be empty.</status>
+</test>
+<test id="s1-s4-t6" name="Status Should Be ${resp} 200" line="12">
+<status status="FAIL" starttime="20251113 19:04:32.747" endtime="20251113 19:04:32.748">Test cannot be empty.</status>
+</test>
+<test id="s1-s4-t7" name="${total}= Get Json Field ${resp} total" line="13">
+<status status="FAIL" starttime="20251113 19:04:32.750" endtime="20251113 19:04:32.750">Test cannot be empty.</status>
+</test>
+<test id="s1-s4-t8" name="Should Be True ${total} &gt;= 0" line="14">
+<status status="FAIL" starttime="20251113 19:04:32.751" endtime="20251113 19:04:32.752">Test cannot be empty.</status>
+</test>
+<status status="FAIL" starttime="20251113 19:04:32.737" endtime="20251113 19:04:32.752"/>
+</suite>
+<suite id="s1-s5" name="04 Orders" source="/home/aman/Desktop/ecom-api-robot/tests/suites/04_orders.robot">
+<test id="s1-s5-t1" name="Place an order" line="7">
+<status status="FAIL" starttime="20251113 19:04:32.755" endtime="20251113 19:04:32.755">Test cannot be empty.</status>
+</test>
+<test id="s1-s5-t2" name="Create Session To API" line="8">
+<status status="FAIL" starttime="20251113 19:04:32.755" endtime="20251113 19:04:32.756">Test cannot be empty.</status>
+</test>
+<test id="s1-s5-t3" name="${headers}= Create Dictionary Authorization=Bearer ${AUTH_TOKEN}" line="9">
+<status status="FAIL" starttime="20251113 19:04:32.757" endtime="20251113 19:04:32.758">Test cannot be empty.</status>
+</test>
+<test id="s1-s5-t4" name="${payload}= Create Dictionary payment_method=card address=Test Address" line="10">
+<status status="FAIL" starttime="20251113 19:04:32.759" endtime="20251113 19:04:32.760">Test cannot be empty.</status>
+</test>
+<test id="s1-s5-t5" name="${resp}= Post Request api /orders json=${payload} headers=${headers}" line="11">
+<status status="FAIL" starttime="20251113 19:04:32.763" endtime="20251113 19:04:32.764">Test cannot be empty.</status>
+</test>
+<test id="s1-s5-t6" name="Status Should Be ${resp} 201" line="12">
+<status status="FAIL" starttime="20251113 19:04:32.765" endtime="20251113 19:04:32.765">Test cannot be empty.</status>
+</test>
+<test id="s1-s5-t7" name="${order_id}= Get Json Field ${resp} id" line="13">
+<status status="FAIL" starttime="20251113 19:04:32.768" endtime="20251113 19:04:32.768">Test cannot be empty.</status>
+</test>
+<test id="s1-s5-t8" name="Should Not Be Empty ${order_id}" line="14">
+<status status="FAIL" starttime="20251113 19:04:32.770" endtime="20251113 19:04:32.770">Test cannot be empty.</status>
+</test>
+<status status="FAIL" starttime="20251113 19:04:32.753" endtime="20251113 19:04:32.770"/>
+</suite>
+<status status="FAIL" starttime="20251113 19:04:32.669" endtime="20251113 19:04:32.771"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="42" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="42" skip="0" id="s1" name="Suites">Suites</stat>
+<stat pass="0" fail="4" skip="0" id="s1-s1" name="00 Setup">Suites.00 Setup</stat>
+<stat pass="0" fail="7" skip="0" id="s1-s2" name="01 Auth">Suites.01 Auth</stat>
+<stat pass="0" fail="15" skip="0" id="s1-s3" name="02 Products">Suites.02 Products</stat>
+<stat pass="0" fail="8" skip="0" id="s1-s4" name="03 Cart">Suites.03 Cart</stat>
+<stat pass="0" fail="8" skip="0" id="s1-s5" name="04 Orders">Suites.04 Orders</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20251113 19:04:32.661" level="ERROR">Error in file '/home/aman/Desktop/ecom-api-robot/tests/suites/00_setup.robot' on line 2: Non-existing setting 'Resource ../resources/keywords.robot'.</msg>
+<msg timestamp="20251113 19:04:32.661" level="ERROR">Error in file '/home/aman/Desktop/ecom-api-robot/tests/suites/00_setup.robot' on line 3: Non-existing setting 'Variables ../variables.robot'.</msg>
+<msg timestamp="20251113 19:04:32.662" level="ERROR">Error in file '/home/aman/Desktop/ecom-api-robot/tests/suites/01_auth.robot' on line 2: Non-existing setting 'Resource ../resources/keywords.robot'.</msg>
+<msg timestamp="20251113 19:04:32.662" level="ERROR">Error in file '/home/aman/Desktop/ecom-api-robot/tests/suites/01_auth.robot' on line 3: Non-existing setting 'Variables ../variables.robot'.</msg>
+<msg timestamp="20251113 19:04:32.663" level="ERROR">Error in file '/home/aman/Desktop/ecom-api-robot/tests/suites/02_products.robot' on line 2: Non-existing setting 'Resource ../resources/keywords.robot'.</msg>
+<msg timestamp="20251113 19:04:32.663" level="ERROR">Error in file '/home/aman/Desktop/ecom-api-robot/tests/suites/02_products.robot' on line 3: Non-existing setting 'Variables ../variables.robot'.</msg>
+<msg timestamp="20251113 19:04:32.664" level="ERROR">Error in file '/home/aman/Desktop/ecom-api-robot/tests/suites/03_cart.robot' on line 2: Non-existing setting 'Resource ../resources/keywords.robot'.</msg>
+<msg timestamp="20251113 19:04:32.664" level="ERROR">Error in file '/home/aman/Desktop/ecom-api-robot/tests/suites/03_cart.robot' on line 3: Non-existing setting 'Variables ../variables.robot'.</msg>
+<msg timestamp="20251113 19:04:32.665" level="ERROR">Error in file '/home/aman/Desktop/ecom-api-robot/tests/suites/04_orders.robot' on line 2: Non-existing setting 'Resource ../resources/keywords.robot'.</msg>
+<msg timestamp="20251113 19:04:32.665" level="ERROR">Error in file '/home/aman/Desktop/ecom-api-robot/tests/suites/04_orders.robot' on line 3: Non-existing setting 'Variables ../variables.robot'.</msg>
+<msg timestamp="20251113 19:04:32.723" level="WARN">Multiple tests with name 'Create Session To API' executed in suite 'Suites.02 Products'.</msg>
+</errors>
+</robot>

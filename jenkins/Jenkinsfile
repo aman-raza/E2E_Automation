@@ -1,0 +1,36 @@
+pipeline {
+agent any
+stages {
+stage('Checkout') {
+steps { checkout scm }
+}
+stage('Install') {
+steps {
+// optional if you use custom image with requirements preinstalled
+sh 'pip install -r requirements.txt'
+}
+}
+stage('Run Robot Tests') {
+steps {
+// run all robot tests and output to reports/
+sh 'mkdir -p reports'
+sh 'robot --outputdir reports tests/suites'
+}
+}
+stage('Publish Reports') {
+steps {
+publishHTML([
+reportName: 'Robot Results',
+reportDir: 'reports',
+reportFiles: 'log.html',
+keepAll: true
+])
+}
+}
+}
+post {
+always {
+archiveArtifacts artifacts: 'reports/**', fingerprint: true
+}
+}
+}
