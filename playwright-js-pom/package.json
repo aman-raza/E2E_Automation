@@ -1,0 +1,15 @@
+{
+  "name": "playwright-js-page-object-model",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A JavaScript Playwright test framework demonstrating the Page Object Model pattern.",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0"
+  }
+}
